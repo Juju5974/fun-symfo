@@ -1,0 +1,10 @@
+{% extends '_postView.html.twig' %}
+
+{% block main %}
+    <article> 
+        <h2 class="h2-home"> Vos meilleures propositions </h2>
+        {% block postView %}
+            {{ parent() }}
+        {% endblock postView %}
+    </article>
+{% endblock main %}

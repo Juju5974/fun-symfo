@@ -1,0 +1,68 @@
+{% extends '_aside.html.twig' %}
+
+{% block postView %}
+    {% for post in posts %}
+        <section class="article-section">
+            <h3>{{ post.subscriber.username ~ ' - ' ~ post.date|date("d/m/Y") }}</h3>
+            <p class="fun-fact">{{ post.content}}</p>
+            <div class="note-home div-border-top">
+                {% if post.votesCount %}
+                    <div class="col-3">Votes : {{ post.votesCount }}</div>
+                {% else %}
+                    <div class="col-3"></div>
+                {% endif %}
+                
+                <div class="col-6">
+                    {% if votes|length >= 0 %}
+                    {% set voteOk = false %}
+                        {% if votes|length > 0 %}
+                            {% for i in 0..(votes|length)-1 %}
+                                {% if votes[i].post == post.id|number_format %}
+                                {% set voteOk = true %}
+                                    <div> Votre note : {{ votes[i].rating }}</div>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if voteOk == false %}
+                            <button type="button" id="callModal" class="btn btn-info btn-contribute callModal" 
+                                data-post={{ post.id }} data-number={{ loop.index0 }} data-bs-toggle="modal" data-bs-target="#voteModal">
+                                Voter
+                            </button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+
+                {% if post.rating %}
+                    <div class="note-home col-3">
+                        <p>Note globale :&nbsp</p>  
+                        {% for i in 1..post.rating|round %} 
+                            <p class="star"> </p>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>                
+        </section>       
+    {% endfor %}
+
+    <div class="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="voteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content modal-css article-section">
+                <div class="modal-header">
+                    <h2 class="">Votre note</h2>
+                </div>
+                
+                <div class="modal-body div-border-top" id="voteModalContent">
+                    {{ form_start(voteForm) }}
+                    {{ form_errors(voteForm) }}                        
+                    {{ form_widget(voteForm.rating, { 'attr': {'class': 'proposition'} }) }}
+                    {{ form_widget(voteForm.post, {'attr': {'id': 'postId', 'type': 'number', 'hidden': 'true'} }) }}
+                    <div class="div-btn-contribution div-border-top">
+                        {{ form_widget(voteForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} }) }}
+                    </div>
+                    
+                    {{ form_end(voteForm) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock postView %}    

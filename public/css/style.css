@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+/* basic reset */
+*,
+*::before,
+*::after,
+p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* generality */
+html {
+    font-size: 1rem;
+}
+body, .modal-css {
+    text-align: center;
+    background: #A8D8DF;
+    width: 100%;
+}
+
+/* header */
+
+nav {
+    width: 20%;
+}  
+ul {
+    text-align: left;
+    margin: auto 2%;
+    list-style: none;
+}
+
+.text-box {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* site title */
+h1 {
+    font-family: 'Anton', sans-serif;
+    position: relative;
+    width: 100%;
+    padding:1vw;
+    display: block;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+    background-color: black;   
+}
+h1:nth-child(2) {
+	position: absolute;
+    color: black;
+    background-color: white;   
+	clip-path: inset(-1% -1% 50% -1%);
+}
+
+/* main */
+main{
+    width: 96%;
+    margin: 1% 2%;
+    gap: 4%;
+    display: flex;
+    justify-content: space-around;
+}
+
+/* article */
+h2 {
+    font-size: 1.5rem;
+    margin: 1% 0 2% 0;
+    text-decoration: underline;
+}
+.star::before {
+    content: "\2606";
+}
+
+article {
+    width: 60%;
+    justify-items: center;
+}
+
+.note-home, h3 {
+margin: 0 2%;
+padding: 0.8% 0;
+}
+
+.h2-home::before, .h2-home::after {
+    content: "\2606";
+}
+
+h3 {
+    font-size: 1.2rem;
+    border-bottom: 1px solid #209bba;
+}
+.article-section {    
+    margin-top: 5%;   
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 4px 4px 10px #209bba;
+}
+.fun-fact {
+    padding-top: 1.8%;
+    margin-bottom: 1.8%;
+}
+
+.div-border-top {
+    border-top: 1px solid #209bba;    
+}
+.note-home {
+    display:flex;
+    justify-content: none;
+    font-size: 0.8rem;
+}
+.contribution {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.proposition {
+    width:100%;
+    border: none;
+    background: powderblue;
+    padding:2%;
+}
+.div-btn-contribution {
+    width:96%;
+    margin: 0% auto;
+    padding: 2% 0;
+}
+
+.note-contribution {
+    border: none;
+    background: powderblue;
+}
+
+/* aside */
+aside {
+    width: 20%;
+}
+section {
+    font-size:1rem;
+    margin: 3%;
+}
+h4 {
+    font-size: 1.2rem;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+.aside-section {
+    height: 80%;
+    max-height: 500px;
+    width: 100%;
+    margin-top: 10%;
+    background: powderblue;
+    border-radius: 10% 40% / 40% 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+/* contact form */
+.contact-wrapper {
+    width:70%;
+    padding-top: 0.1%;
+    margin: 5% auto 0;
+}
+.form-group {
+    width: 90%;
+    margin: 3% auto;
+
+}
+.form-control {
+    margin-top: 0.5%;
+    
+}
+#no {
+    margin-left:5%
+}
+
+/* footer */
+footer {
+    padding:1% ;
+    /*background: red;*/
+    background: #42aac3;   
+    font-size:0.8rem
+}
+
+@media screen and (min-width:1800px) {
+    article {
+        width: 50%;
+    }
+}
