@@ -12,6 +12,8 @@ use App\Entity\Vote;
 use App\Repository\VoteRepository;
 use App\FormManager\FormSetting;
 use App\FormManager\FormFlushing;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 Class PageController extends AbstractController {
     #[Route('/', name: 'index')]
@@ -54,7 +56,7 @@ Class PageController extends AbstractController {
     }
 
     #[Route('/collection', name: 'collection')]
-    public function colletion(
+    public function collection(
         FormSetting $formSetting, FormFlushing $formFlushing, 
         PostRepository $postRepository, VoteRepository $voteRepository, 
         Request $request, EntityManagerInterface $em)
@@ -97,8 +99,25 @@ Class PageController extends AbstractController {
     }
 
     #[Route('/contact', name: 'contact')]
-    public function contact()
+    public function contact(Request $request, MailerInterface $mailer)
     {
+        $email = new Email();
+        $email->from('juju5974.dev@gmail.com')
+            ->to('juju5974.dev@gmail.com')
+            ->subject('test email')
+            ->text('tg !');
+
+        $mailer->send($email);
+
+        $pseudo = $request->request->get('pseudo');
+        $emailRequest = $request->request->get('email');
+        $category = $request->request->get('category');
+        $message = $request->request->get('message');
+        //$newsletter = $request->request->get('');
+        
+
+        //dump($_POST);
+
         return $this->render('contact.html.twig');
     }
 

@@ -10,6 +10,7 @@
                 <p>Vous n'êtes pas connecté</p>
             {% endif %}
             <br>
+            
             {% if app.request.get('_route') == 'index' or app.request.get('_route') == 'collection' %}
                 <button type="button" class="btn btn-info btn-contribute" data-bs-toggle="modal" data-bs-target="#postModal">
                     Contribuer
@@ -21,7 +22,7 @@
                                 <h2 class="">Votre proposition</h2>
                             </div>
                             <div class="modal-body div-border-top">
-                                {{ form_start(postForm) }}
+                                {{ form_start(postForm, { 'attr': {'id': 'post'} }) }}
                                 {{ form_errors(postForm.content) }}
                                 {{ form_widget(postForm.content, { 'attr': {'class': 'proposition'} }) }}
                                 <div class="div-btn-contribution div-border-top">

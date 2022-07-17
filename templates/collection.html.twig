@@ -2,10 +2,11 @@
 
 {% block main %}
     <article> 
+
         <h2 class="">Recueil</h2>
         {% block postView %}
             {{ parent() }}
         {% endblock postView %}
     </article>
-    <script src="{{ asset('js/scripts.js') }}"></script>
+    
 {% endblock main %}

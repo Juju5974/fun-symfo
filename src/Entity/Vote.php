@@ -16,8 +16,8 @@ class Vote
 
     #[ORM\Column(type: 'integer')]
     #[Assert\NotBlank(message: "Veuillez entrer votre note.")]
-    #[Assert\Type('integer', message: "Veuillez entrer un chiffre entier entre 1 et 5.")]
-    #[Assert\Length(min: 1, max: 5, minMessage: "Veuillez entrer un chiffre entier entre 1 et 5.", maxMessage: "Veuillez entrer un chiffre entier entre 1 et 5.")]
+    #[Assert\Type('integer', message: "Veuillez choisir une note.")]
+    #[Assert\Range(min: 1, max: 5, notInRangeMessage: "Veuillez choisir une note.")]
     private $rating;
 
     #[ORM\ManyToOne(targetEntity:'App\Entity\Post', inversedBy:'vote')]
