@@ -20,7 +20,7 @@ $('document').ready(() => {
             }
         });
         $.ajax({
-            url: 'http://localhost:8000/testpost',
+            url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
             method: 'POST',
             data: {
                 content: $('#post_content').val(),
@@ -52,7 +52,7 @@ $('document').ready(() => {
             }
         });
         $.ajax({
-            url: 'http://localhost:8000/testvote',
+            url: 'https://radiant-hamlet-79456.herokuapp.com/testvote',
             method: 'POST',
             data: {
                 rating: $('#form_rating').prop('selectedIndex'),
