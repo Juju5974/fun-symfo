@@ -24,11 +24,11 @@ $('document').ready(() => {
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
                 'Access-Control-Allow-Credentials': 'true'*/
-                'Access-Control-Allow-Origin': 'http://radiant-hamlet-79456.herokuapp.com'
+                'Access-Control-Allow-Origin': 'https://radiant-hamlet-79456.herokuapp.com'
             }
         });
         $.ajax({
-            url: 'http://radiant-hamlet-79456.herokuapp.com/testpost',
+            url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
             method: 'POST',
             data: {
                 content: $('#post_content').val(),
@@ -63,11 +63,11 @@ $('document').ready(() => {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'*/
-                'Access-Control-Allow-Origin': 'http://radiant-hamlet-79456.herokuapp.com'
+                'Access-Control-Allow-Origin': 'https://radiant-hamlet-79456.herokuapp.com'
             }
         });
         $.ajax({
-            url: 'http://radiant-hamlet-79456.herokuapp.com/testvote',
+            url: 'https://radiant-hamlet-79456.herokuapp.com/testvote',
             method: 'POST',
             data: {
                 rating: $('#form_rating').prop('selectedIndex'),
