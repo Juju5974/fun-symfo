@@ -30,7 +30,7 @@ Class PageController extends AbstractController {
                 return $this->redirectToRoute('login');
             }   
             $formFlushing->flushPostForm($post, $em, $user);
-            //return $this->redirectToRoute('index');
+            return $this->redirectToRoute('index');
         }
 
         $vote = new Vote();
