@@ -16,10 +16,13 @@ $('document').ready(() => {
         e.preventDefault();
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                /*'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'multipart/form-data'
+                'Access-Control-Allow-Headers': 'Content-Type'*/
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
             }
         });
         $.ajax({
@@ -51,10 +54,13 @@ $('document').ready(() => {
         e.preventDefault();
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                /*'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'multipart/form-data'
+                'Access-Control-Allow-Headers': 'Content-Type'*/
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
             }
         });
         $.ajax({
