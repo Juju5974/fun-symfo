@@ -17,7 +17,7 @@ $('document').ready(() => {
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('input[name="_token"]').val(),
-                'Access-Control-Allow-Origin': 'https://radiant-hamlet-79456.herokuapp.com/testvote'
+                'Access-Control-Allow-Origin': 'https://radiant-hamlet-79456.herokuapp.com/', 'https://radiant-hamlet-79456.herokuapp.com/'
             }
         });
         $.ajax({
