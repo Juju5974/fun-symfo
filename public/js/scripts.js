@@ -19,11 +19,12 @@ $('document').ready(() => {
                 /*'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type'*/
+                'Access-Control-Allow-Headers': 'Content-Type'
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
                 'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-                'Access-Control-Allow-Credentials': 'true'
+                'Access-Control-Allow-Credentials': 'true'*/
+                'Access-Control-Allow-Origin': 'http://radiant-hamlet-79456.herokuapp.com'
             }
         });
         $.ajax({
@@ -58,10 +59,11 @@ $('document').ready(() => {
                 /*'X-CSRF-TOKEN': $('input[name="_token"]').val(),
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type'*/
+                'Access-Control-Allow-Headers': 'Content-Type'
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'*/
+                'Access-Control-Allow-Origin': 'http://radiant-hamlet-79456.herokuapp.com'
             }
         });
         $.ajax({
