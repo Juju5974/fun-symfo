@@ -28,7 +28,7 @@ $('document').ready(() => {
             }
         });
         $.ajax({
-            url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
+            url: 'http://radiant-hamlet-79456.herokuapp.com/testpost',
             method: 'POST',
             data: {
                 content: $('#post_content').val(),
