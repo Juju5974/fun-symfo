@@ -49,7 +49,8 @@ $('document').ready(() => {
         e.preventDefault();
         $.ajaxSetup({
             headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val()
+                'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                'Access-Control-Allow-Origin': 'https://radiant-hamlet-79456.herokuapp.com/'
             }
         });
         $.ajax({
