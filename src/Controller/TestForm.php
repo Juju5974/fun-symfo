@@ -3,17 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Post;
-use App\Form\PostType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Vote;
 
 Class TestForm extends AbstractController {
@@ -21,9 +14,11 @@ Class TestForm extends AbstractController {
     public function testPostForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: https://radiant-hamlet-79456.herokuapp.com");
+        header("Access-Control-Allow-Methods: POST");
         // On créé l'entité $post avec les données fourni en POST
         $post = new Post();
         $post->setContent($request->request->get('content'));
+        $post->headers->set('Access-Control-Allow-Origin', '*');
 
 		// On récupère la liste des erreurs de notre entité $user
 		$errors = $validator->validate($post);
@@ -36,6 +31,7 @@ Class TestForm extends AbstractController {
     public function testVoteForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: https://radiant-hamlet-79456.herokuapp.com");
+        header("Access-Control-Allow-Methods: POST");
         // On créé l'entité $post avec les données fourni en POST
         $vote = new Vote();
         $vote->setRating($request->request->get('rating'));
