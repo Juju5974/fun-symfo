@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\Vote;
 
 Class TestForm extends AbstractController {
-    #[Route('/testpost', name: 'testpost')]
+    #[Route('/testpost', name: 'testpost', methods: ['POST'])]
     public function testPostForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: *");
@@ -27,11 +27,11 @@ Class TestForm extends AbstractController {
         return $this->json([$errors]);
     }
 
-    #[Route('/testvote', name: 'testvote')]
+    #[Route('/testvote', name: 'testvote', methods: ['POST'])]
     public function testVoteForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: POST");
+        //header("Access-Control-Allow-Methods: POST");
         // On créé l'entité $post avec les données fourni en POST
         $vote = new Vote();
         $vote->setRating($request->request->get('rating'));
