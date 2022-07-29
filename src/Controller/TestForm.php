@@ -37,7 +37,6 @@ Class TestForm extends AbstractController {
 
 		// On récupère la liste des erreurs de notre entité $user
 		$errors = $validator->validate($vote);
-        dump($errors);
         //$response = new JsonResponse($errors);
         return $this->json([$errors]);
     }
