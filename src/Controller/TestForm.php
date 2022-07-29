@@ -16,6 +16,7 @@ Class TestForm extends AbstractController {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST");
         header("HTTP/1.1 200 OK");
+        header("Content-Type: text/html");
         // On créé l'entité $post avec les données fourni en POST
         $post = new Post();
         $post->setContent($request->request->get('content'));
@@ -34,6 +35,7 @@ Class TestForm extends AbstractController {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST");
         header("HTTP/1.1 200 OK");
+        header("Content-Type: text/html");
         // On créé l'entité $post avec les données fourni en POST
         $vote = new Vote();
         $vote->setRating($request->request->get('rating'));
