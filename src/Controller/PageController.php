@@ -16,7 +16,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
 Class PageController extends AbstractController {
-    #[Route('/', name: 'index')]
+    #[Route('/', name: 'index', schemes: ['https'])]
     public function index(FormSetting $formSetting, FormFlushing $formFlushing, Request $request, EntityManagerInterface $em, PostRepository $postRepository, VoteRepository $voteRepository)
     {
         $user = $this->getUser();
@@ -55,7 +55,7 @@ Class PageController extends AbstractController {
         ]);
     }
 
-    #[Route('/collection', name: 'collection')]
+    #[Route('/collection', name: 'collection', schemes: ['https'])]
     public function collection(
         FormSetting $formSetting, FormFlushing $formFlushing, 
         PostRepository $postRepository, VoteRepository $voteRepository, 
@@ -98,7 +98,7 @@ Class PageController extends AbstractController {
         ]);
     }
 
-    #[Route('/contact', name: 'contact')]
+    #[Route('/contact', name: 'contact', schemes: ['https'])]
     public function contact(Request $request, MailerInterface $mailer)
     {
         $email = new Email();

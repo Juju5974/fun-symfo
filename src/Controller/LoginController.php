@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class LoginController extends AbstractController
 {
-    #[Route('/login', name: 'login')]
+    #[Route('/login', name: 'login', schemes: ['https'])]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         $error = $authenticationUtils->getLastAuthenticationError();
