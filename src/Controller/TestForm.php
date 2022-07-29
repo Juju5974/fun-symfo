@@ -14,6 +14,7 @@ Class TestForm extends AbstractController {
     public function testPostForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: https://radiant-hamlet-79456.herokuapp.com");
+        header("Access-Control-Allow-Origin: http://radiant-hamlet-79456.herokuapp.com");
         header("Access-Control-Allow-Methods: POST");
         // On créé l'entité $post avec les données fourni en POST
         $post = new Post();
@@ -31,6 +32,7 @@ Class TestForm extends AbstractController {
     public function testVoteForm (Request $request, ValidatorInterface $validator)
     {
         header("Access-Control-Allow-Origin: https://radiant-hamlet-79456.herokuapp.com");
+        header("Access-Control-Allow-Origin: http://radiant-hamlet-79456.herokuapp.com");
         header("Access-Control-Allow-Methods: POST");
         // On créé l'entité $post avec les données fourni en POST
         $vote = new Vote();
