@@ -16,26 +16,22 @@
                     Contribuer
                 </button>
                 <div class="modal fade" id="postModal" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
-                    {% if app.user %}
-                        <div class="modal-dialog">
-                            <div class="modal-content modal-css article-section">
-                                <div class="modal-header">
-                                    <h2 class="">Votre proposition</h2>
+                    <div class="modal-dialog">
+                        <div class="modal-content modal-css article-section">
+                            <div class="modal-header">
+                                <h2 class="">Votre proposition</h2>
+                            </div>
+                            <div class="modal-body div-border-top">
+                                {{ form_start(postForm, { 'attr': {'id': 'post'} }) }}
+                                {{ form_errors(postForm.content) }}
+                                {{ form_widget(postForm.content, { 'attr': {'class': 'proposition'} }) }}
+                                <div class="div-btn-contribution div-border-top">
+                                    {{ form_widget(postForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} }) }}
                                 </div>
-                                <div class="modal-body div-border-top">
-                                    {{ form_start(postForm, { 'attr': {'id': 'post'} }) }}
-                                    {{ form_errors(postForm.content) }}
-                                    {{ form_widget(postForm.content, { 'attr': {'class': 'proposition'} }) }}
-                                    <div class="div-btn-contribution div-border-top">
-                                        {{ form_widget(postForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} }) }}
-                                    </div>
-                                    {{ form_end(postForm) }}
-                                </div>
+                                {{ form_end(postForm) }}
                             </div>
                         </div>
-                    {% else %}
-                        href="{{ path('login') }}"
-                    {% endif %}
+                    </div>
                 </div>
             {% endif %}
         </section>
