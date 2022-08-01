@@ -11,7 +11,7 @@ Class FormFlushing extends AbstractController {
         $post->setSubscriber($user);
         $em->persist($post);
         $em->flush();
-        dump($post);
+        //dump($post);
         $this->addFlash('success', 'Votre contribution a bien été prise en compte.');
         return $this->json(['success' => 'ok']);
     }
