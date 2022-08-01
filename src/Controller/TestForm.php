@@ -8,9 +8,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\Vote;
-/*
+
 Class TestForm extends AbstractController {
-    #[Route('/testpost', name: 'testpost')]
+    /*#[Route('/testpost', name: 'testpost')]
     public function testPostForm (Request $request, ValidatorInterface $validator)
     {
         //header("Access-Control-Allow-Origin: *");
@@ -39,5 +39,5 @@ Class TestForm extends AbstractController {
 		$errors = $validator->validate($vote);
         //$response = new JsonResponse($errors);
         return $this->json([$errors]);
-    }
-}*/
+    }*/
+}
