@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     {% else %}
-                        {% do redirect('/login') %}
+                        {{ render(controller('login')) }}
                     {% endif %}
                 </div>
             {% endif %}
