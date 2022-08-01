@@ -34,7 +34,7 @@
                             </div>
                         </div>
                     {% else %}
-                        {{ encore_entry_link_tags('login') }}
+                        {{ redirect(path('login')) }}
                     {% endif %}
                 </div>
             {% endif %}
