@@ -15,7 +15,7 @@ $('document').ready(() => {
     // Récupération des erreurs de formulaires back sans rechargement de la page //
     $('#post_submit').on('click', (e) => {
         e.preventDefault();
-        if ($('#connected')) {
+        if ($('#connected')  ) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
