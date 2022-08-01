@@ -29,7 +29,7 @@ Class TestForm extends AbstractController {
     #[Route('/testvote', name: 'testvote')]
     public function testVoteForm (Request $request, ValidatorInterface $validator)
     {
-        //header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Origin: *");
 
         // On créé l'entité $post avec les données fourni en POST
         $vote = new Vote();
