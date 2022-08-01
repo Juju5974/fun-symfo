@@ -16,6 +16,7 @@ $('document').ready(() => {
     $('#post_submit').on('click', (e) => {
         e.preventDefault();
         if ($('#connected')) {
+            console.log($('#connected'))
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('input[name="_token"]').val(),
