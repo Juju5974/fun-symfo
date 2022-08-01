@@ -15,41 +15,42 @@ $('document').ready(() => {
     // Récupération des erreurs de formulaires back sans rechargement de la page //
     $('#post_submit').on('click', (e) => {
         e.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('input[name="_token"]').val(),
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST',
-                'Access-Control-Allow-Headers': 'Content-Type'
-                /*'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
-                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-                'Access-Control-Allow-Origin': '*'*/
-            }
-        });
-        $.ajax({
-            url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
-            method: 'POST',
-            data: {
-                content: $('#post_content').val(),
-            },
-            success: function(result) {
-                if(result[0].detail) {
-                    let message = result[0].violations[0].title
-                    console.log(message)
-                    if(!$('.form-back-validation').length) {
-                    $('#post_content').before('<p class="form-back-validation">* ' + message + '</p>')
-                    }
-                    return
-                } else {
-                $('#post').submit()
+        if ($('#connected')) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('input[name="_token"]').val(),
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'POST',
+                    'Access-Control-Allow-Headers': 'Content-Type'
+                    /*'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+                    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+                    'Access-Control-Allow-Origin': '*'*/
                 }
-            },
-            error: function(result) {
-                console.log('erreur')
-            }
-        });
-        
+            });
+            $.ajax({
+                url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
+                method: 'POST',
+                data: {
+                    content: $('#post_content').val(),
+                },
+                success: function(result) {
+                    if(result[0].detail) {
+                        let message = result[0].violations[0].title
+                        console.log(message)
+                        if(!$('.form-back-validation').length) {
+                        $('#post_content').before('<p class="form-back-validation">* ' + message + '</p>')
+                        }
+                        return
+                    } else {
+                    $('#post').submit()
+                    }
+                },
+                error: function(result) {
+                    console.log('erreur')
+                }
+            });
+        }
     })
 
     $('#form_submit').on('click', (e) => {
