@@ -5,7 +5,7 @@
         <section class="aside-section">
             <h4>Informations</h4>
             {% if app.user %}
-                <p class="connected">Vous êtes connecté en tant que : {{ app.user.username }} </p>
+                <p id="connected">Vous êtes connecté en tant que : {{ app.user.username }} </p>
             {% else %}
                 <p>Vous n'êtes pas connecté</p>
             {% endif %}
