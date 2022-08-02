@@ -34,7 +34,7 @@
             
             <nav>
                 <ul>
-                    <li><a href="{{ url }} ">Accueil</a></li>
+                    <li><a href="{{ base_url ~ '/' }}">Accueil</a></li>
                     <li><a href="{{ path('collection') }}">Recueil</a></li>
                     <li><a href="{{ path('contact') }}">Contact</a></li>
                     {% if not app.user %}
