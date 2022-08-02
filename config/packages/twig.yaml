@@ -5,4 +5,4 @@ when@test:
     twig:
         strict_variables: true
     globals:
-        url: 'https://radiant-hamlet-79456.herokuapp.com'
+        url: 'https://www.radiant-hamlet-79456.herokuapp.com'
