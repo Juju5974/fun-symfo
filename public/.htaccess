@@ -27,8 +27,8 @@ DirectoryIndex index.php
     # work in environments without path prefix as well, providing a safe, one-size
     # fits all solution. But as you do not need it in this case, you can comment
     # the following 2 lines to eliminate the overhead.
-    RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
-    RewriteRule .* - [E=BASE:%1]
+    #RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
+    #RewriteRule .* - [E=BASE:%1]
 
     #RewriteCond %{SERVER_PORT} 80
     #RewriteRule ^(.*)$ https://radiant-hamlet-79456.herokuapp.com/$1 [R=301,L]
@@ -38,8 +38,8 @@ DirectoryIndex index.php
     #RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Sets the HTTP_AUTHORIZATION header removed by Apache
-    #RewriteCond %{HTTP:Authorization} .+
-    #RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
+    RewriteCond %{HTTP:Authorization} .+
+    RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
 
     # Redirect to URI without front controller to prevent duplicate content
     # (with and without `/index.php`). Only do this redirect on the initial
