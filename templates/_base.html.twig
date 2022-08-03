@@ -34,13 +34,13 @@
             
             <nav>
                 <ul>
-                    <li><a href="https://radiant-hamlet-79456.herokuapp.com/">Accueil</a></li>
-                    <li><a href="{{ base_url ~ '/collection' }}">Recueil</a></li>
-                    <li><a href="{{ base_url ~ '/contact' }}">Contact</a></li>
+                    <li><a href="{{ path('index') }}">Accueil</a></li>
+                    <li><a href="{{ path('collection') }}">Recueil</a></li>
+                    <li><a href="{{ path('contact') }}">Contact</a></li>
                     {% if not app.user %}
-                        <li><a href="{{ base_url ~ '/login' }}">Connexion</a></li>
+                        <li><a href="{{ path('login') }}">Connexion</a></li>
                     {% else %}
-                        <li><a href="{{ base_url ~ '/logout' }}">Déconnexion</a></li>
+                        <li><a href="{{ path('logout') }}">Déconnexion</a></li>
                     {% endif %}
                 </ul>            
             </nav> 
