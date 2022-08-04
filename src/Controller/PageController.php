@@ -107,7 +107,7 @@ Class PageController extends AbstractController {
             ->subject('test email')
             ->text('tg !');
 
-        $mailer->send($email);
+        //$mailer->send($email);
 
         $pseudo = $request->request->get('pseudo');
         $emailRequest = $request->request->get('email');
