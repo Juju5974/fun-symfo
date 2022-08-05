@@ -102,10 +102,10 @@ Class PageController extends AbstractController {
     public function contact(Request $request, MailerInterface $mailer)
     {
         $email = new Email();
-        $email->from('app269803720@heroku.com')
+        $email->from('juju5974.dev@gmail.com')
             ->to('juliette.verschoore@hotmail.fr')
             ->subject('test email')
-            ->text('tg !');
+            ->text('test');
 
         $mailer->send($email);
 
