@@ -107,6 +107,9 @@ Class PageController extends AbstractController {
             ->subject('test email')
             ->text('test');
 
+            header("Access-Control-Allow-Origin: *");
+            header("Access-Control-Allow-Methods: OPTIONS");
+
         $mailer->send($email);
 
         $pseudo = $request->request->get('pseudo');
