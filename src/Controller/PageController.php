@@ -103,12 +103,12 @@ Class PageController extends AbstractController {
     {
         $email = new Email();
         $email->from('juju5974.dev@gmail.com')
-            ->to('juliette.verschoore@hotmail.fr')
+            ->to('juju5974.dev@gmail.com')
             ->subject('test email')
             ->text('test');
 
-            header("Access-Control-Allow-Origin: *");
-            header("Access-Control-Allow-Methods: OPTIONS");
+        header("Access-Control-Allow-Origin: *");
+        header("Access-Control-Allow-Methods: OPTIONS");
 
         $mailer->send($email);
 
