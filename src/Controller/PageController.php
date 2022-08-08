@@ -102,17 +102,6 @@ Class PageController extends AbstractController {
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request, MailerInterface $mailer)
     {
-        $email = new TemplatedEmail();
-        $email->from('juju5974.dev@gmail.com')
-            ->to('juju5974.dev@gmail.com')
-            ->subject('test email')
-            ->htmlTemplate('emails/contact.html.twig');
-
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: OPTIONS");
-
-        $mailer->send($email);
-
         $postRequest = $request->request;
 
         $pseudo = $request->request->get('pseudo');
@@ -120,7 +109,22 @@ Class PageController extends AbstractController {
         $category = $request->request->get('category');
         $message = $request->request->get('message');
         //$newsletter = $request->request->get('');
-        
+                
+        $email = new TemplatedEmail();
+        $email->from('juju5974.dev@gmail.com')
+            ->to('juju5974.dev@gmail.com')
+            ->subject('test email')
+            ->htmlTemplate('emails/contact.html.twig')
+            ->context([
+                'pseudo' => $pseudo,
+                'mail' => $mail,
+                'category' => $category,
+                'message' => $message
+            ]);
+
+        $mailer->send($email);
+
+
 
         //dump($_POST);
 
