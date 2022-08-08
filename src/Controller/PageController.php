@@ -104,12 +104,14 @@ Class PageController extends AbstractController {
     {
         $postRequest = $request->request;
 
-        $pseudo = $request->request->get('pseudo');
-        $mail = $request->request->get('email');
-        $category = $request->request->get('category');
-        $message = $request->request->get('message');
-        //$newsletter = $request->request->get('');
+        $pseudo = $postRequest->get('pseudo');
+        $mail = $postRequest->get('email');
+        $category = $postRequest->get('category');
+        $message = $postRequest->get('message');
+        //$newsletter = $postRequest->get('');
                 
+        if (count($postRequest) > 0)
+        {        
         $email = new TemplatedEmail();
         $email->from('juju5974.dev@gmail.com')
             ->to('juju5974.dev@gmail.com')
@@ -124,10 +126,9 @@ Class PageController extends AbstractController {
             ]);
 
         $mailer->send($email);
+        }
 
 
-
-        //dump($_POST);
 
         return $this->render('contact.html.twig');
     }
