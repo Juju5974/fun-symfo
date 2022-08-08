@@ -14,6 +14,7 @@ use App\FormManager\FormSetting;
 use App\FormManager\FormFlushing;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 
 Class PageController extends AbstractController {
     #[Route('/', name: 'index')]
@@ -101,19 +102,21 @@ Class PageController extends AbstractController {
     #[Route('/contact', name: 'contact')]
     public function contact(Request $request, MailerInterface $mailer)
     {
-        $email = new Email();
+        $email = new TemplatedEmail();
         $email->from('juju5974.dev@gmail.com')
             ->to('juju5974.dev@gmail.com')
             ->subject('test email')
-            ->text('test');
+            ->htmlTemplate('emails/contact.html.twig');
 
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: OPTIONS");
 
         $mailer->send($email);
 
+        $postRequest = $request->request;
+
         $pseudo = $request->request->get('pseudo');
-        $emailRequest = $request->request->get('email');
+        $mail = $request->request->get('email');
         $category = $request->request->get('category');
         $message = $request->request->get('message');
         //$newsletter = $request->request->get('');
