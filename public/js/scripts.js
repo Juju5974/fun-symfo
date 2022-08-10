@@ -56,7 +56,7 @@ $('document').ready(() => {
         }
     })
 
-    $('#form_submit').on('click', (e) => {
+    $('#vote_submit').on('click', (e) => {
         e.preventDefault();
         $.ajaxSetup({
             headers: {

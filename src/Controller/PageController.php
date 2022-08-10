@@ -116,7 +116,7 @@ Class PageController extends AbstractController {
         $email->from('juju5974.dev@gmail.com')
             ->to('juju5974.dev@gmail.com')
             ->cc($mail)
-            ->subject('test email')
+            ->subject('Blague')
             ->htmlTemplate('emails/contact.html.twig')
             ->context([
                 'pseudo' => $pseudo,

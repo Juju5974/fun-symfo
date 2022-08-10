@@ -30,4 +30,14 @@ Class FormFlushing extends AbstractController {
         $em->flush();
         $this->addFlash('success', 'Votre contribution a bien été prise en compte');
     }
+
+    public function flushNewUserForm ($newUser, $em, $passwordHasher)
+    {      
+        $password = $newUser->getPassword();
+        $hashedPassword = $passwordHasher->hashPassword($newUser, $password);
+        $newUser->setPassword($hashedPassword);
+        $em->persist($newUser);
+        $em->flush();
+        $this->addFlash('success', 'Merci pour votre inscription !');
+    }
 }

@@ -125,6 +125,11 @@ h3 {
     background: powderblue;
     padding:2%;
 }
+.register-form {
+    width:100%;
+    border: none;
+    padding:2%;
+}
 .div-btn-contribution {
     width:96%;
     margin: 0% auto;

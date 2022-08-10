@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use App\Entity\Post;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 Class FormSetting extends AbstractController {
     public function getPostForm ($request, $post)
@@ -38,5 +39,18 @@ Class FormSetting extends AbstractController {
         $voteForm->handleRequest($request);
 
         return $voteForm;
+    }
+    public function getNewUserForm ($request, $newUser)
+    {
+        $newUserForm =  $this->createFormBuilder($newUser)
+            ->add('username',TextType::class, ['attr' => ['placeholder' => 'Pseudo']])
+            ->add('email',TextType::class, ['attr' => ['placeholder' => 'Email']])
+            ->add('password',TextType::class, ['attr' => ['placeholder' => 'Mot de passe']])
+            //->add('post', EntityType::class, ['class' => Post::class, 'choice_label' => 'id'])
+            ->add('submit', SubmitType::class)
+            ->getForm();
+        $newUserForm->handleRequest($request);
+
+        return $newUserForm;
     }
 }
