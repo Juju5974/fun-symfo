@@ -103,7 +103,7 @@ Class PageController extends AbstractController {
     public function contact(Request $request, MailerInterface $mailer)
     {
         $postRequest = $request->request;
-
+ 
         $pseudo = $postRequest->get('pseudo');
         $mail = $postRequest->get('email');
         $category = $postRequest->get('category');
