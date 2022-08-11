@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="modal-body div-border-top" id="voteModalContent">
-                    {{ form_start(voteForm) }}
+                    {{ form_start(voteForm, { 'attr': {'id': 'vote'} }) }}
                         {{ form_errors(voteForm, { 'attr': {'id': 'voteError'} })  }}                        
                         {{ form_widget(voteForm.rating, { 'attr': {'class': 'proposition'} }) }}
                         {{ form_widget(voteForm.post, {'attr': {'id': 'postId', 'type': 'number', 'hidden': 'true'} }) }}
