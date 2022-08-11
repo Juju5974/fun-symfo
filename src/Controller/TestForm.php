@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use App\Entity\Vote;
+use App\Entity\Subscriber;
 
 Class TestForm extends AbstractController {
     #[Route('/testpost', name: 'testpost')]
@@ -41,4 +42,5 @@ Class TestForm extends AbstractController {
         //$response = new JsonResponse($errors);
         return $this->json([$errors]);
     }
+
 }

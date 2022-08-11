@@ -60,10 +60,11 @@ h1:nth-child(2) {
 /* main */
 main{
     width: 96%;
-    margin: 1% 2%;
+    margin: 1% 2% 0.5% 2%;
     gap: 4%;
     display: flex;
     justify-content: space-around;
+    min-height: 86vh;
 }
 
 /* article */
@@ -136,6 +137,12 @@ h3 {
     padding: 2% 0;
 }
 
+.input-login {
+    border-style: none;
+    padding: 1%;
+    width: 50%;
+}
+
 .note-contribution {
     border: none;
     background: powderblue;
@@ -190,8 +197,8 @@ h4 {
 
 /* footer */
 footer {
+    width: 100%;
     padding:1% ;
-    /*background: red;*/
     background: #42aac3;   
     font-size:0.8rem
 }

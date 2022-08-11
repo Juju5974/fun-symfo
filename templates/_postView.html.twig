@@ -57,7 +57,7 @@
                         {{ form_widget(voteForm.rating, { 'attr': {'class': 'proposition'} }) }}
                         {{ form_widget(voteForm.post, {'attr': {'id': 'postId', 'type': 'number', 'hidden': 'true'} }) }}
                         <div class="div-btn-contribution div-border-top">
-                            {{ form_widget(voteForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} ,'id': 'vote_submit' }) }}
+                            {{ form_widget(voteForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} ,'id': 'vote_submit', 'label': 'Valider' }) }}
                         </div>
                     {{ form_end(voteForm) }}
                 </div>

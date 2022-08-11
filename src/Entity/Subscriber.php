@@ -6,6 +6,7 @@ use App\Repository\SubscriberRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SubscriberRepository::class)]
 class Subscriber implements UserInterface, PasswordAuthenticatedUserInterface
@@ -16,15 +17,21 @@ class Subscriber implements UserInterface, PasswordAuthenticatedUserInterface
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    #[Assert\NotBlank(message: "Veuillez entrer un pseudo.")]
+    #[Assert\Length(min:4, minMessage: "Votre pseudo doit comporter au minimum 4 caractères.")]
     private $username;
 
     #[ORM\Column(type: 'string', length: 180, unique: true)]
+    #[Assert\NotBlank(message: "Veuillez entrer une adresse e-mail.")]
+    #[Assert\Email(message: "Veuillez entrer une adresse e-mail valide.")]
     private $email;
 
     #[ORM\Column(type: 'json')]
     private $roles = [];
 
     #[ORM\Column(type: 'string')]
+    #[Assert\NotBlank(message: "Veuillez entrer un mot de passe.")]
+    #[Assert\Length(min:8, minMessage: "Votre mot de passe doit comporter au minimum 8 caractères.")]
     private $password;
 
     #[ORM\OneToMany(targetEntity:'App\Entity\Vote', mappedBy:'subscriber')]
