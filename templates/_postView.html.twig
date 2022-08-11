@@ -47,20 +47,29 @@
     <div class="modal fade" id="voteModal" tabindex="-1" role="dialog" aria-labelledby="voteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content modal-css article-section">
-                <div class="modal-header">
-                    <h2 class="">Votre note</h2>
-                </div>
-                
-                <div class="modal-body div-border-top" id="voteModalContent">
-                    {{ form_start(voteForm, { 'attr': {'id': 'vote'} }) }}
-                        {{ form_errors(voteForm, { 'attr': {'id': 'voteError'} })  }}                        
-                        {{ form_widget(voteForm.rating, { 'attr': {'class': 'proposition'} }) }}
-                        {{ form_widget(voteForm.post, {'attr': {'id': 'postId', 'type': 'number', 'hidden': 'true'} }) }}
-                        <div class="div-btn-contribution div-border-top">
-                            {{ form_widget(voteForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} ,'id': 'vote_submit', 'label': 'Valider' }) }}
+                {% if app.user %}                
+                    <div class="modal-header">
+                        <h2 class="">Votre note</h2>
+                    </div>
+                    
+                    <div class="modal-body div-border-top" id="voteModalContent">
+                        {{ form_start(voteForm, { 'attr': {'id': 'vote'} }) }}
+                            {{ form_errors(voteForm, { 'attr': {'id': 'voteError'} })  }}                        
+                            {{ form_widget(voteForm.rating, { 'attr': {'class': 'proposition'} }) }}
+                            {{ form_widget(voteForm.post, {'attr': {'id': 'postId', 'type': 'number', 'hidden': 'true'} }) }}
+                            <div class="div-btn-contribution div-border-top">
+                                {{ form_widget(voteForm.submit, { 'attr': {'class': 'btn btn-info btn-contribute'} ,'id': 'vote_submit', 'label': 'Valider' }) }}
+                            </div>
+                        {{ form_end(voteForm) }}
+                    </div>
+                {% else %}
+                    <div class="m-3">
+                        <p class="h4">Merci de vous connecter pour voter.</p>
+                        <div class="div-btn-contribution div-border-top mt-3">
+                            <a href="{{ path('login') }}"<button type="button" class="btn btn-info mt-3">Connexion</button></a>
                         </div>
-                    {{ form_end(voteForm) }}
-                </div>
+                    <div>
+                {% endif %}
             </div>
         </div>
     </div>
