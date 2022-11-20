@@ -23,10 +23,6 @@ $('document').ready(() => {
                     'Access-Control-Allow-Origin': '*',
                     'Access-Control-Allow-Methods': 'POST',
                     'Access-Control-Allow-Headers': 'Content-Type'
-                    /*'Access-Control-Allow-Origin': '*',
-                    'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
-                    'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-                    'Access-Control-Allow-Origin': '*'*/
                 }
             });
             $.ajax({
@@ -87,5 +83,9 @@ $('document').ready(() => {
             }
         });
         
+    })
+
+    $('#side-btn').on('click', (e) => {
+        $('#side-menu').toggleClass('menu-open')
     })
 })
