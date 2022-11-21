@@ -26,7 +26,7 @@ $('document').ready(() => {
                 }
             });
             $.ajax({
-                url: 'https://radiant-hamlet-79456.herokuapp.com/testpost',
+                url: 'https://recueil-de-blagues.herokuapp.com/testpost',
                 method: 'POST',
                 data: {
                     content: $('#post_content').val(),
@@ -48,7 +48,7 @@ $('document').ready(() => {
                 }
             });
         } else {
-            window.location.href = "https://radiant-hamlet-79456.herokuapp.com/login";
+            window.location.href = "https://recueil-de-blagues.herokuapp.com/login";
         }
     })
 
@@ -60,7 +60,7 @@ $('document').ready(() => {
             }
         });
         $.ajax({
-            url: 'https://radiant-hamlet-79456.herokuapp.com/testvote',
+            url: 'https://recueil-de-blagues.herokuapp.com/testvote',
             method: 'POST',
             data: {
                 rating: $('#form_rating').prop('selectedIndex'),

@@ -7,12 +7,12 @@
             <p class="fun-fact">{{ post.content}}</p>
             <div class="note-home div-border-top">
                 {% if post.votesCount %}
-                    <div class="col-3">Votes : {{ post.votesCount }}</div>
+                    <div class="votes col-5 my-auto">Votes : {{ post.votesCount }}</div>
                 {% else %}
-                    <div class="col-3"></div>
+                    <div class="col-5"></div>
                 {% endif %}
                 
-                <div class="col-6">
+                <div class="col-2 my-auto">
                     {% if votes|length >= 0 %}
                     {% set voteOk = false %}
                         {% if votes|length > 0 %}
@@ -33,11 +33,13 @@
                 </div>
 
                 {% if post.rating %}
-                    <div class="note-home col-3">
-                        <p>Note globale :&nbsp</p>  
-                        {% for i in 1..post.rating|round %} 
-                            <p class="star"> </p>
-                        {% endfor %}
+                    <div class="note col-5 m-auto">
+                        <p>Note globale :&nbsp</p>
+                        <div class="note-home">  
+                            {% for i in 1..post.rating|round %} 
+                                <p class="star my-auto"> </p>
+                            {% endfor %}
+                        </div>
                     </div>
                 {% endif %}
             </div>                

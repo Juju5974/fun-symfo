@@ -4,9 +4,9 @@
 
 {% block main %}
     <article>
-        <div id="side-btn">
-            <i class="fas fa-bars"></i>
-        </div> 
+        <div id="menu-btn">
+            <i id="side-btn" class="fas fa-bars"></i>
+        </div>
 
         {% if error %}
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
